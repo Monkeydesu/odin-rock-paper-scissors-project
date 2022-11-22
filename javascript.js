@@ -57,4 +57,14 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-playRound(getComputerChoice(), playerChoice())
+
+function game() {
+    let i = 1;
+    while (i < 6) {
+        console.log("ROUND " + i)
+        playRound(getComputerChoice(), playerChoice())
+        i ++
+    }
+}
+
+game()
