@@ -7,7 +7,7 @@ function getComputerChoice() {
     } else if (x === 3) {
         x = "scissors"
     }
-    return console.log(x)
+    return x
 }
 
 
@@ -17,14 +17,44 @@ function playerChoice() {
         let y = prompt("Please enter rock, paper, or scissors: ");
         if (y === "rock" || y === "paper" || y === "scissors") {
             isValid = true
-            return console.log(y)
+            return y
         }
         else {
-            console.log("Please enter a valid answer.")
+            console.warn("Please enter a valid answer.")
         }
     }
 }
 
 
-getComputerChoice()
-playerChoice()
+function playRound(computerChoice, playerChoice) {
+    console.log("The computer chose " + computerChoice + ", and you chose " + playerChoice + ".")
+    if (computerChoice === playerChoice) {
+        console.log("It's a tie")
+    }
+    else if (computerChoice === "rock") {
+        if (playerChoice === "paper") {
+            console.log("You win, nice!")
+        }
+        else {
+            console.log("You lose, sorry.")
+        }
+    }
+    else if (computerChoice === "paper") {
+        if (playerChoice === "scissors") {
+            console.log("You win, nice!")
+        }
+        else {
+            console.log("You lose, sorry.")
+        }
+    }
+    else if (computerChoice === "scissors") {
+        if (playerChoice === "rock") {
+            console.log("You win, nice!")
+        }
+        else {
+            console.log("You lose, sorry.")
+        }
+    }
+}
+
+playRound(getComputerChoice(), playerChoice())
